@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "918a758a-9019-4271-98de-58af25758398",
+		"name": "Users",
+		"description": "Endpoint de registro de usuarios y carga de imagen (avatar)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26020827-918a758a-9019-4271-98de-58af25758398"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"id": "1c4f04fc-03fe-4614-b9e1-7d8000ef6ab0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"JhonDoe\",\r\n    \"email\": \"jhon_doe@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/users",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				},
+				"description": "**Marketplace** brinda a los usuarios la creacion de perfiles, lo cual brindará a través de la autenticación, el acceso total al comercio soportado, entre las cuales destaca la posibilidad de comprar y vender artículos en stock. La informacion de creacion recibirá todas las verificaciones de seguridad para proteger la BBDD.\n\nConsideraciones generales:\n\n- El endpoint recibe por body (JSON) la informacion minima requerida.\n- El campo \"_username_\" se refiere a un nombre de usuario generado por el usuario cliente entre min:6/max:50 caracteres; el campo \"_email_\" debe ser un correo valido; en campo \"_password_\" debe ser un string entre min:7/max:50 caracteres. Todos los campos son requeridos."
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"id": "54e95364-88c1-4a75-b9a2-bf0db185625a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/WINDOWS/Desktop/Sin título.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/users/2",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"2"
+					]
+				},
+				"description": "Actualizacion de perfil de usuario mediante un avatar.\n\nConsideraciones generales:\n\n- El endpoint recibe por body(form-data) un archivo de imagen (JPG/PNG), con el nombre \"_file_\".\n- El _file_ debe tener como peso max: 10mb."
+			},
+			"response": []
+		}
+	]
+}

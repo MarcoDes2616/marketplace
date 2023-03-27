@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "b0cb1054-7d3b-4822-a9ea-b864dbc2716a",
+		"name": "Products",
+		"description": "Endpoint de creacion, actualización y visualizacion de productos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26020827-b0cb1054-7d3b-4822-a9ea-b864dbc2716a"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"id": "775b0a31-615e-49c5-ac4a-86b3719c9222",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJjdXNjbyIsImVtYWlsIjoiZWN1YW5vdmVsYXMyQGdtYWlsLmNvbSIsImlhdCI6MTY3OTkzMzY3OSwiZXhwIjoxNjgwMDIwMDc5fQ.QWG1COl_ccgCQlxmQlb-sASuP2XVQM9f4XibKGVusc8VEu-EG7fPNBIYaRwuqddvNT8q-RmEE02vASZOF2i-7w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/WINDOWS/Desktop/Sin título.png"
+						},
+						{
+							"key": "name",
+							"value": "Samsung A21",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Pantalla QLED 7¨",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/products",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				},
+				"description": "**Marketplace** brinda a sus usuarios un comercio multi-vendedor. Usuarios podrán crear articulos y venderlos dentro de una plataforma cliente (front).\n\nConsideraciones importantes:\n\n- El endpoint recibe por body (form-data).\n- El campo \"_name_\" se refiere al nombre del artículo; el campo \"_description_\" incluirá una descripción del artículo; el campo \"_price_\" se refiere al monto de venta en moneda local y debe ser enciado con notacion de punto (299.99) sin incluir simbolo de moneda; el campo \"_stock_\" se refiere a la cantidad de artículos disponibles (el _stock_ se reducirá una vez el articulo pertenezca a una orden generada por el comprador); el campo \"_user_id_\" se refiere al usuario vendedor (este campo recibirá una verificación de autenticación). Todos los campos descritos en esta consideracion son requeridos.\n- El campo \"_file_\" contendrá una imagen en formato JPG/PNG con un peso max: 10mb.\n- El endpoint recibe por Header la autenticación (JWT), con el nombre \"_token_\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Products",
+			"id": "c492c768-0743-48a3-b0ce-8a6884f7a146",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/products",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				},
+				"description": "El endpoint brindará los artículos disponibles cuyp stock sea mayor a 0."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"id": "61311d25-986a-47ab-9458-0fd0fb58289e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJpc2FiZWxpdGEiLCJlbWFpbCI6ImRsaXJpb3MuYWNjZXNvcmlvczIwMjFAZ21haWwuY29tIiwiaWF0IjoxNjc5ODQyNjYyLCJleHAiOjE2Nzk5MjkwNjJ9.YkekkwnMMdU91fIvyZ_QuFehlBXPl4OeDp3_xQuQd16jTbCUMqBBv7FieSJC8SrN2ktwe3IHnFANMSwJh37Llw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Ultimos articulos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/products/5",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"5"
+					]
+				},
+				"description": "Un usuario podrá editar la _descripción_ los artículos publicados.\n\nConsideraciones generales:\n\n- El endpoint recibe por body en formato JSON los campos a actualizar (_description_).\n- El endpoint recibe un parametro correspondiente al artículo a actualizar.\n- El endpoint recibe por Header la autenticación (JWT), con el nombre \"_token_\"."
+			},
+			"response": []
+		}
+	]
+}
