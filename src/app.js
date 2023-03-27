@@ -45,7 +45,7 @@ app.get('/app/uploads/:filename', (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Bienvenidos a Marketplace /n by Marco Cardenas | G-21 ACADEMLO /n Documentacion: https://documenter.getpostman.com/view/25698929/2s93RQTZy9");
+  res.send("Bienvenidos a Marketplace \n By Marco Cardenas | G-21 ACADEMLO \n Documentacion: https://documenter.getpostman.com/view/25698929/2s93RQTZy9");
 })
 
 errorHandlerRouter(app);
