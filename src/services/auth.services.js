@@ -13,5 +13,6 @@ class AuthServices {
     }
   }
 }
+jwt.sign(payload, secretWord, { algorithm: , expiresIn: } )
 
 module.exports = AuthServices;
