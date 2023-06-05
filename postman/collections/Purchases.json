@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "cb6406c4-9e99-4f99-9272-83ca7963aa91",
+		"name": "Purchases",
+		"description": "Endpoint de compras e historial de compras.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26020827-cb6406c4-9e99-4f99-9272-83ca7963aa91"
+	},
+	"item": [
+		{
+			"name": "Create a Purchase",
+			"id": "b7b8b7d1-bfd8-4692-9570-69573475953f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJjdXNjbyIsImVtYWlsIjoiZWN1YW5vdmVsYXMyQGdtYWlsLmNvbSIsImlhdCI6MTY3OTg1NTI5NCwiZXhwIjoxNjc5OTQxNjk0fQ.pk9U4syxZ1U2xNenmf65xvMIOG585ZmYYQWqz0xp4aAeviukdrn2DQmi-EsGVv4lrtic5mrVNVfIi4CXByV3gw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/order/1",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"1"
+					]
+				},
+				"description": "**Marketplace** establece una _orden_ sobre un carrito de compras perteneciente a un usuario. Una vez generada la _orden_, el _stock_ disponible es verificado. Es posible que las cantidades de artículos y totalizacion de compra se vea afectada segun la disponibilidad de los productos. Solo en este punto, las cantidades serán consumidas del _stock_ disponible.\n\nConsideraciones generales:\n\n- El endpoint recibe por header la autenticación (JWT), con el nombre _token_.\n- El endpoint recibe por _parámetro_ el id del usuario que esta efectuando la compra, (este parámetro recibirá una verificación).\n- El comprador recibirá un E-mail de confirmacion de la orden, con enlace a pasarela de pagos."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchases",
+			"id": "e6353485-e661-4851-9cac-ce82a52edc4b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJsYXZhcGVycm9zIiwiZW1haWwiOiJsYXZhcGVycm9zQGdtYWlsLmNvbSIsImlhdCI6MTY3OTc3NjM0NiwiZXhwIjoxNjc5ODYyNzQ2fQ.xh2kbNjmqXR95kdp4XcH6hmpWnDjq4CEbIksA0FWiMFz5xf0FjTc1c4rrvytFuOMV1tIVT12xG-xFaAPdd-Jdg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/order",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order"
+					]
+				},
+				"description": "**Marketplace** brinda a los usuarios información histórica de sus compras.\n\nConsideraciones generales:\n\n- El endpoint recibe por header la autenticación (JWT), con el nombre _token_."
+			},
+			"response": []
+		}
+	]
+}

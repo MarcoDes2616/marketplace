@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "7f474b81-30c4-44a6-9986-6047a0ec2848",
+		"name": "Cart",
+		"description": "Endpoint de creacion y carga de productos al carrito de compas, y visualización de articulos contenidos en el carrito de compras.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26020827-7f474b81-30c4-44a6-9986-6047a0ec2848"
+	},
+	"item": [
+		{
+			"name": "Add to cart",
+			"id": "aec2416e-0151-49c5-b1e8-67ca217f06b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJjdXNjbyIsImVtYWlsIjoiZWN1YW5vdmVsYXMyQGdtYWlsLmNvbSIsImlhdCI6MTY3OTg1NTI5NCwiZXhwIjoxNjc5OTQxNjk0fQ.pk9U4syxZ1U2xNenmf65xvMIOG585ZmYYQWqz0xp4aAeviukdrn2DQmi-EsGVv4lrtic5mrVNVfIi4CXByV3gw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": 5,\r\n    \"quantity\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/cart",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					]
+				},
+				"description": "**Marketplace** controla en su base de dato, tablas para el registro de un carrito de compras con sus articulos. Un usuario podrá generar un único carrito de compras a la vez. Como cliente de **Marketplace** (front) solo requieres transmitir al sistema el producto y las cantidades a agregar al carrito de compras. La totalización es un proceso seguro dentro de **Marketplace**.\n\nConsideraciones importantes:\n\n- El endpoint recibe por body.\n- Los campos \"_product_id_\" y \"_quantity_\" son requeridos.\n- El endpoint recibe por Header la autenticación (JWT), con el nombre \"_token_\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart",
+			"id": "4b4a7c93-9307-4de7-841b-3ec3522e73e3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJjdXNjbyIsImVtYWlsIjoiZWN1YW5vdmVsYXMyQGdtYWlsLmNvbSIsImlhdCI6MTY3OTg1NTI5NCwiZXhwIjoxNjc5OTQxNjk0fQ.pk9U4syxZ1U2xNenmf65xvMIOG585ZmYYQWqz0xp4aAeviukdrn2DQmi-EsGVv4lrtic5mrVNVfIi4CXByV3gw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://marketplace-production-f533.up.railway.app/api/v1/cart",
+					"protocol": "https",
+					"host": [
+						"marketplace-production-f533",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					]
+				},
+				"description": "StartFragment\n\nConsideraciones importantes:\n\n- El endpoint recibe por Header la autenticación (JWT), con el nombre \"_token_\".\n    \n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}
